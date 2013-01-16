@@ -1,7 +1,7 @@
 Sherlock_Holmes
 ===============
 
-Nice debug logger to capture crash info and submit.
+Nice debug logger to capture crash info ad additional info and submit.
 Sherlock is on the case!
 Sherlock logs events in your app, crashes, memory usage, iOS version, device Type and navigation tracking.
 
