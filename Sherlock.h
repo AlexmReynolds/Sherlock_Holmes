@@ -45,10 +45,16 @@
 
 
 #if defined(SHERLOCK_ENABLED) && SHERLOCK_ENABLED
-    #define Sherlock_Sleuth( event, callerClass, logData ) \
+    #define Sherlock_Sleuth( event, logData ) \
     {\
+        NSString *eventName = @""; \
         Sherlock *logger = [[Sherlock alloc] init]; \
-        [logger updateAppStatus:event controller:callerClass data:logData]; \
+        if (event){\
+            eventName = event;\
+        }else {\
+            eventName = NSStringFromSelector(_cmd); \
+        }\
+        [logger updateAppStatus:eventName controller:NSStringFromClass([self class]) data:logData]; \
     }
     #define Sherlock_Solve() \
     {\

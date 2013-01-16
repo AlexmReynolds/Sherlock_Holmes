@@ -11,10 +11,10 @@ Implementation:
 Added Sherlock.h to your root controller.
 
 To log events in your app use
-Sherlock_Sleuth(Event, ControllerName, Data)
-Event: the name of the even such as "View Did Load" or "Making API CALL"
-ControllerName: The name of the owner of the even like NSStringFromClass([self class])
+Sherlock_Sleuth(Event, Data)
+Event: the name of the even such as "View Did Load" or "Making API CALL". If value is nil then the name of the containing method will be used.
 Data: Additional data to attach to event. In the case of crash this would be the callStack
+Sleuth gets the name of the controller that it is called in and stores the event and data under that controller. This way in a crash you will know what controller was last logged.
 
 To Check if there was a crash to report use:
 Sherlock_Investigate();
