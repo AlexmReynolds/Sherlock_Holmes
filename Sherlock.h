@@ -61,10 +61,7 @@
         Sherlock *logger = [[Sherlock alloc] init]; \
         [logger sendDebugLog]; \
     }
-    #define Sherlock_Investigate() \
-    {\
-        return [Sherlock checkForCrash]; \
-    }
+    #define Sherlock_Investigate()[Sherlock checkForCrash]
 #else
     #define Sherlock_Sleuth(...)
     #define Sherlock_Investigate(...)
